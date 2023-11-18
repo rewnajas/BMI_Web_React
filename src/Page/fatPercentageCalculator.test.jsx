@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import '@testing-library/jest-dom'
-import FatPercentageCalculator from "./FatPercentageCalculator";
+import FatPercentage from "./FatPercentage"
 
 test('true', () => {
-   render(<FatPercentageCalculator />);
+   render(<FatPercentage/>);
    const input = screen.getByText('Hello worlqd');
   // Events and assertions...
    console.log(input);

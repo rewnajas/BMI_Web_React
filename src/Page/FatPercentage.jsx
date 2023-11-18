@@ -59,26 +59,26 @@ function FatPercentage() {
           <div>
             <label>
               Height
-              <input type="text" onChange={handleHeight} required />
+              <input  data-testid="HeightInput"  type="text"onChange={handleHeight} required />
             </label>
 
             <label>
               Weight
-              <input type="text" onChange={handleWeight} required />
+              <input data-testid="WeightInput" type="text" onChange={handleWeight} required />
             </label>
 
             <label>
               Age
-              <input type="text" onChange={handleAge} required />
+              <input data-testid="AgeInput" type="text" onChange={handleAge} required />
             </label>
 
-            <label for="cars">Choose a car:</label>
-
-            <select onChange={handleGender}>
+            <label>Gender
+            <select data-testid="Gender" onChange={handleGender}>
                 <option value="">none select</option>            
                 <option value="1">male</option>
                 <option value="0">female</option>
             </select>
+            </label>
           </div>
         </Col>
         <Col>

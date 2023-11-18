@@ -1,14 +1,12 @@
-
-﻿
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import '@testing-library/jest-dom'
 import FatPercentage from "./FatPercentage"
 
-// describe('Have Completed Input', () => {
-//    render(<FatPercentageCalculator />);
-//    // Events and assertions...
-//    // console.log(input.textContent);
+describe('Have Completed Input', () => {
+   //render(<FatPercentage/>);
+   // Events and assertions...
+   //console.log(input.textContent);
 
    it('Have Height input', () => {
       render(<FatPercentage/>);
@@ -36,7 +34,7 @@ import FatPercentage from "./FatPercentage"
 
 })
 
-//==========================================================================================================
+// ==========================================================================================================
 
 
 // describe('it should Calculate correctly', () => {
@@ -48,8 +46,8 @@ import FatPercentage from "./FatPercentage"
 
 // ===========================================================================================================
 
-describe('Input have to be in length', () => {
-   render(<FatPercentageCalculator />);
+// describe('Input have to be in length', () => {
+//    render(<FatPercentage/>);
 
 //    it('Height should be in length', () => {
 //       const inputHeight = Number(screen.getByLabelText('Height', {selector: 'input'}).textContent)
@@ -95,4 +93,4 @@ describe('Input have to be in length', () => {
 //       }
 //    })
 
-})
+// })

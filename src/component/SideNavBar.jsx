@@ -1,6 +1,6 @@
 import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import BMI from "../Page/BMI";
-import FatPercentage from "./FatPercal";
+import FatPercentage from "../Page/FatPercentage";
 import { LinkContainer } from "react-router-bootstrap";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "../Style/Navbar.css";

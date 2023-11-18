@@ -1,13 +1,26 @@
 import { useState } from "react";
-import "../component/Inputvalidation";
 import "../Style/BMI.css";
-import isValidate from "../component/Inputvalidation";
+import InputBox from "../component/InputBox";
 
 export default function BMI() {
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
   const [message, setMessage] = useState("");
   const [bmi, setBMI] = useState("");
+
+  //
+  const [validationStatus, setValidationStatus] = useState({
+    height: true,
+    width: true,
+  });
+
+  const handleValidation = (dataType, isValid) => {
+    setValidationStatus((prevStatus) => ({
+      ...prevStatus,
+      [dataType]: isValid,
+    }));
+  };
+  //
 
   function calculateBMI() {
     const h = height / 100;
@@ -48,29 +61,28 @@ export default function BMI() {
       </span>
 
       <div className="area-input">
-        <input
-          value={weight}
-          type="text"
-          placeholder="Weight (in kg)"
-          onChange={(e) => {
-            setWeight(e.target.value);
-          }}
+        <InputBox
+          dataType="height"
+          placeholder={"Height (in cm)"}
+          setValue={setHeight}
+          handleValidation={handleValidation}
+          validationStatus={validationStatus}
+        />
+        <InputBox
+          dataType="weight"
+          placeholder={"Weight (in kg)"}
+          setValue={setWeight}
+          handleValidation={handleValidation}
+          validationStatus={validationStatus}
         />
 
-        <input
-          value={height}
-          type="text"
-          placeholder="Height (in cm)"
-          onChange={(e) => {
-            setWeight(e.target.value);
-          }}
-        />
-
-        <button onClick={calculateBMI} disabled={!validate}>
+        <button onClick={calculateBMI} disabled={Object.values(validationStatus).includes(false)}>
           Calculate
         </button>
       </div>
-      <h2> {isValidate(150) ? `${message} ${bmi}` : <p>Wrong!</p>} </h2>
+      <h2>
+        {message} {bmi}
+      </h2>
     </div>
   );
 }

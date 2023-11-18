@@ -1,19 +1,26 @@
-function Validate(height, weight, age, sex, BMI){
-    if (height < 100 || height > 300){
+export default function isValidate(options = {}) {
+    const {
+        vHeight = undefined,
+        vWeight = undefined,
+        vAge = undefined,
+        vSex = undefined,
+    } = options;
+
+    if (vHeight !== undefined && (vHeight < 100 || vHeight > 300 || isNaN(vHeight))) {
         return false;
     }
 
-    else if (weight < 15 || weight > 300){
+    if (vWeight !== undefined && (vWeight < 15 || vWeight > 300 || isNaN(vWeight))) {
         return false;
     }
 
-    else if (age < 2 || age > 100){
+    if (vAge !== undefined && (vAge < 2 || vAge > 100 || isNaN(vAge))) {
         return false;
     }
 
-    else if (sex != 'M' || sex != 'F'){
+    if (vSex !== undefined && vSex !== 'M' && vSex !== 'F') {
         return false;
     }
 
-    return true; //Validate pass
+    return true; // Validation passed
 }

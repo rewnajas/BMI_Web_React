@@ -60,7 +60,7 @@ export default function BMI() {
         Let's calculate your Body Mass Index. <br></br> Type the values below
       </span>
 
-      <div className="area-input">
+      <div className="area-input" >
         <InputBox
           dataType="height"
           placeholder={"Height (in cm)"}

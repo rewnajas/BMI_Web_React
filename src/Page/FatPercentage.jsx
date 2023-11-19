@@ -1,94 +1,115 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "../Style/FatPercentage.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import "../Style/BMI.css";
+import InputBox from "../component/InputBox";
 
 function FatPercentage() {
-  const [height, setHeight] = useState();
-  const [weight, setWeight] = useState();
-  const [bmi, setBMI] = useState();
-  const [gender, setGender] = useState();
-  const [age, setAge] = useState();
-  const [fatPercent, setFatpercent] = useState();
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+  const [gender, setGender] = useState("");
+  const [age, setAge] = useState("");
+  const [fatPercent, setFatpercent] = useState("");
+  const [resetFlag, setResetFlag] = useState(false);
+  
+  //
+  const [validationStatus, setValidationStatus] = useState({
+    height: true,
+    width: true,
+    gendeer: true,
+  });
+
+  const handleValidation = (dataType, isValid) => {
+    setValidationStatus((prevStatus) => ({
+      ...prevStatus,
+      [dataType]: isValid,
+    }));
+  };
+  //
+
+  const clearFields = () => {
+    setGender("");
+    setFatpercent("");
+    setResetFlag(prev => !prev);
+  };
 
   const FatCal = () => {
     let h = height / 100;
+    let bmi = weight / (h * h);
+    let G = gender == "M" ? 16.2 : 5.4;
 
-    if(gender == "")
-    {
-        setFatpercent("Kuy We need your gender to calculate");
-    }
-    else {
-        if (age < 15) {
-            setFatpercent(1.51 * (weight / (h * h)) - 0.7 * age - 3.6 * gender + 1.4);
-        } else {
-            setFatpercent(1.2 * (weight / (h * h)) + 0.23 * age - 10.8 * gender - 5.4);
-        }
-    }
-
-  };
-
-  const handleHeight = (event) => {
-    setHeight(event.target.value);
-  };
-
-  const handleWeight = (event) => {
-    setWeight(event.target.value);
-  };
-
-  const handleAge = (event) => {
-    setAge(event.target.value);
-  };
-
-  const handleGender = (event) => {
-    setGender(event.target.value);
+    setFatpercent("FatPercentage: " + (((1.2 * bmi) + (0.23 * age) - G).toFixed(2)) + "%") ;
   };
 
   return (
-    <Container
-      fluid="md"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        padding: "100px",
-      }}
-    >
-      <Row>
-        <Col>
-          <div>
-            <label>
-              Height
-              <input  data-testid="HeightInput"  type="text"onChange={handleHeight} required />
+    <div className="container mt-3">
+      <div className="card">
+        <div className="card-header">Let's calculate</div>
+        <div className="card-body">
+        <InputBox
+            laBel="Height"
+            placeholder="Enter height"
+            dataType="height"
+            handleValidation={handleValidation}
+            validationStatus={validationStatus}
+            setValue={setHeight}
+            reset={resetFlag}
+          />
+          <InputBox
+            laBel="Weight"
+            placeholder="Enter weight"
+            dataType="weight"
+            handleValidation={handleValidation}
+            validationStatus={validationStatus}
+            setValue={setWeight}
+            reset={resetFlag}
+          />
+          <InputBox
+            laBel="Age"
+            placeholder="Enter age"
+            dataType="age"
+            handleValidation={handleValidation}
+            validationStatus={validationStatus}
+            setValue={setAge}
+            reset={resetFlag}
+          />
+         
+          <div className="mb-3">
+            <label htmlFor="gender" className="form-label">
+              Gender
             </label>
-
-            <label>
-              Weight
-              <input data-testid="WeightInput" type="text" onChange={handleWeight} required />
-            </label>
-
-            <label>
-              Age
-              <input data-testid="AgeInput" type="text" onChange={handleAge} required />
-            </label>
-
-            <label>Gender
-            <select data-testid="Gender" onChange={handleGender}>
-                <option value="">none select</option>            
-                <option value="1">male</option>
-                <option value="0">female</option>
+            <select
+              className="form-select"
+              id="gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            >
+              <option value="">Select Gender</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
             </select>
-            </label>
           </div>
-        </Col>
-        <Col>
-            <button onClick={FatCal}>Calculate</button>
-        </Col>
-        <Col>
-          <h1>{fatPercent}</h1>
-        </Col>
-      </Row>
-    </Container>
+          <div className="d-grid gap-2">
+            <button
+              className="btn btn-primary"
+              type="button"
+              disabled={Object.values(validationStatus).includes(false) || gender == ""}
+              onClick={FatCal}
+            >
+              Calculate
+            </button>
+            <button
+              className="btn btn-outline-secondary"
+              type="button"
+              onClick={clearFields}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <center className="mt-4">{fatPercent}</center>
+    </div>
   );
 }
 

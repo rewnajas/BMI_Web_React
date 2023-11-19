@@ -1,0 +1,7 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.sideNavBar-button {
+    width: 100%;
+    margin: 0;
+    margin-left: 20%;
+}

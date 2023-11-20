@@ -13,16 +13,13 @@ beforeEach(() => {
  })*/
 
  describe('Display correctly BMIcal page', () => {  // Display BMI calculator
-    //render(<BMI />);
-    // Events and assertions...
-     //console.log(input.textContent);
 
     it('Should have a heading with the text "BMI Calculator"', () => {
       render(<BMI />);
       const headingText = screen.getByText('BMI Calculator');
       expect(headingText).toBeInTheDocument();
     });
-    it('Should have description', () => {
+    it('Should have right description', () => {
       const { getByText } = render(<BMI/>);
       // Assert that the text is present in the rendered component
       const textElement = getByText(
@@ -36,27 +33,111 @@ beforeEach(() => {
       const inputWeight = screen.getByPlaceholderText('Weight (in kg)');
       expect(inputWeight).toBeInTheDocument();
     });
-    it('Have Height input', () => {
+    it('Should Have Height input', () => {
       render(<BMI />);
        const inputHeight = screen.getByPlaceholderText('Height (in cm)')
        expect(inputHeight).toBeInTheDocument();
     })
+    
+    it('Should Have Calculate Button', () => {
+      render(<BMI />);
+       const button = screen.getByText('Calculate')
+       expect(button).toBeInTheDocument();
+    })
+
+
    })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
 describe('Calculate BMI correctly', () => { //calculate correctly BMI 
-  it('should calculate BMI correctly', () => {
-    // Render the component
+  it('Should calculate BMI correctly for H=180,W=70', () => {
     render(<BMI />);
-    // Input values for height and weight
     fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '180' } });
     fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '70' } });
-    // Click the "Calculate BMI" button
     fireEvent.click(screen.getByText('Calculate'));
-    // Assert that the result message is present in the rendered component
     const textElement = screen.getByText('Healthy weight. Your BMI is 21.60');
     expect(textElement).toBeInTheDocument();
   })
+  it('should calculate BMI correctly for H=170,W=40', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '170' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '40' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Severe Thinness. Your BMI is 13.84');
+    expect(textElement).toBeInTheDocument();
+  })
+
+  it('Should calculate BMI correctly for H=174,W=50', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '174' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '50' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Moderate Thinness. Your BMI is 16.51');
+    expect(textElement).toBeInTheDocument();
+  })
+
+  it('Should calculate BMI correctly for H=174,W=56', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '174' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '56' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Mild Thinness. Your BMI is 18.50');
+    expect(textElement).toBeInTheDocument();
+  })
+  it('Should calculate BMI correctly for H=174,W=76', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '174' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '76' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Overweight. Your BMI is 25.10');
+    expect(textElement).toBeInTheDocument();
+  })
+  it('should calculate BMI correctly for H=156,W=76', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '156' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '76' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Obese Class I. Your BMI is 31.23');
+    expect(textElement).toBeInTheDocument();
+  })
+  it('Should calculate BMI correctly for H=180,W=120', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '180' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '120' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Obese Class II. Your BMI is 37.04');
+    expect(textElement).toBeInTheDocument();
+  })
+  it('Should calculate BMI correctly for H=170,W=120', () => {
+    render(<BMI />);
+    fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '170' } });
+    fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '120' } });
+    fireEvent.click(screen.getByText('Calculate'));
+    const textElement = screen.getByText('Obese Class III. Your BMI is 41.52');
+    expect(textElement).toBeInTheDocument();
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
 
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -40,7 +40,7 @@ it('handles input change and sets value', () => {
  })
 
 
-describe('Should validates invaild input', () => {
+describe('Should validates invaild input and send Err messages', () => {
 it('validates input for weight', () => {
   const mockHandleValidation = jest.fn();
   const { getByPlaceholderText, getByText } = render(

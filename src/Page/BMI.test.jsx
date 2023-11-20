@@ -19,7 +19,7 @@ beforeEach(() => {
 
     it('Should have a heading with the text "BMI Calculator"', () => {
       render(<BMI />);
-      const headingText = screen.getByTestId('h1');
+      const headingText = screen.getByText('BMI Calculator');
       expect(headingText).toBeInTheDocument();
     });
     it('Should have description', () => {

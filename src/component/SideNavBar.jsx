@@ -21,11 +21,15 @@ function SideNavBar() {
       <Button
           variant="primary"
           onClick={handleShow}
+
           style={{
             position: "fixed",
             top: 0,
             left: 0,
             zIndex: 1000, // Adjust as needed based on your layout
+            backgroundColor:'rgb(255, 122, 56)',
+            border: '0',
+            
           }}
         >
           <LuMenuSquare
@@ -42,22 +46,16 @@ function SideNavBar() {
           placement="start"
           scroll={true}
         >
-          <Offcanvas.Header closeButton style={{ backgroundColor: "#ffcc00" }}>
-            <Offcanvas.Title>CS266 N03</Offcanvas.Title>
+          <Offcanvas.Header closeButton style={{ backgroundColor: "white" }}>
+            <Offcanvas.Title class="navtitle"><i class='bx bx-dumbbell' style={{ marginRight: '16px' }}></i>CS266 N03</Offcanvas.Title>
           </Offcanvas.Header>
-          <Offcanvas.Body style={{ backgroundColor: "#696969" }}>
-            <Navbar
-              fixed="right"
-              variant="dark"
-              className="d-flex shadow justify-content-between sideNav"
-              style={{
-                zIndex: 10,
-              }}
-            >
+          <Offcanvas.Body style={{ backgroundColor: "white" }}>
+            
               <div className="d-grid gap-2">
                 <LinkContainer to="/react-bmi">
                   <Link className="link-text">
                     <button type="button" class="btn btn-outline-warning sideNavBar-button btn-lg">
+                      <i class='bx bx-calculator' style={{ marginRight: '16px' }}></i>
                       BMI Calculator
                     </button>
                   </Link>
@@ -65,12 +63,12 @@ function SideNavBar() {
                 <LinkContainer to="/FatCal">
                   <Link className="link-text">
                     <button type="button" class="btn btn-outline-warning sideNavBar-button btn-lg">
+                    <i class='bx bx-body' style={{ marginRight: '16px' }}></i>
                       Fat Percentage Calculator
                     </button>
                   </Link>
                 </LinkContainer>
               </div>
-            </Navbar>
           </Offcanvas.Body>
         </Offcanvas>
 

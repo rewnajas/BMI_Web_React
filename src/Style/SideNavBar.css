@@ -3,5 +3,28 @@
 .sideNavBar-button {
     width: 100%;
     margin: 0;
-    margin-left: 20%;
+    margin-left: 0;
+    padding: 16px 16px;
+    border: none;
+    text-align: left;
+    font-weight: 700;
+    color: black;
 }
+
+.sideNavBar-button:hover {
+    background-color: rgb(255, 122, 56);
+    color: white;
+}
+
+.sideNavBar-button:active {
+    background-color: rgb(255, 122, 56);
+    color: white;
+}
+
+.navtitle {
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+

@@ -51,24 +51,11 @@ span {
     background-color: rgb(220, 220, 220, 0.8);
 }
 
-.area-input button {
-    background-color: #1a63e0;
-    color: white;
-    height: 46px;
-    width: 100%;
-    font-size: 16px;
-    border: none;
-    border-radius: 10px;
-    transition: all ease 0.2s;
-}
-
-.area-input button:hover {
-    background-color: rgb(26, 99, 224, 0.8);
-}
-
 /* When the screen size is less than 500px */
 @media (max-width: 500px) {
   .area-input {
     width: 300px;
   }
 }
+
+/* Button */

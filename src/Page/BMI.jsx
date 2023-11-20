@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../Style/BMI.css";
+import "../Style/FatPercentage.css";
 import InputBox from "../component/InputBox";
 
 export default function BMI() {
@@ -76,7 +77,7 @@ export default function BMI() {
           validationStatus={validationStatus}
         />
 
-        <button onClick={calculateBMI} disabled={Object.values(validationStatus).includes(false)}>
+        <button class="button button-calc" onClick={calculateBMI} disabled={Object.values(validationStatus).includes(false)}>
           Calculate
         </button>
       </div>

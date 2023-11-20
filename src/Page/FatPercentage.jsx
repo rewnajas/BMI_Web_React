@@ -36,7 +36,7 @@ function FatPercentage() {
   const FatCal = () => {
     let h = height / 100;
     let bmi = weight / (h * h);
-    let G = gender == "M" ? 16.2 : 5.4;
+    let G = gender === "M" ? 16.2 : 5.4;
 
     setFatpercent("FatPercentage: " + (((1.2 * bmi) + (0.23 * age) - G).toFixed(2)) + "%") ;
 
@@ -122,7 +122,7 @@ function FatPercentage() {
 
               <div className="d-grid gap-2">
                 <p>
-                  <button className="button button-calc" type="button" disabled={Object.values(validationStatus).includes(false) || gender == ""} onClick={FatCal}>
+                  <button className="button button-calc" type="button" disabled={Object.values(validationStatus).includes(false) || gender === ""} onClick={FatCal}>
                     Calculate
                   </button>
                   <button className="button button-clear" type="button" onClick={clearFields}>

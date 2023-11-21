@@ -2,18 +2,7 @@ import { render, screen,fireEvent } from "@testing-library/react";
 import React from "react";
 import '@testing-library/jest-dom'
 import BMI from './BMI';
-import InputBox from "../component/InputBox";
-//import { shallow } from 'enzyme'
-
-/*
-describe('<BMI /> Test Suite', () => {
- let wrapper
-beforeEach(() => {
-  wrapper = shallow(<BMI/>)
- })*/
-
  describe('Display correctly BMIcal page', () => {  // Display BMI calculator
-
     it('Should have a heading with the text "BMI Calculator"', () => {
       render(<BMI />);
       const headingText = screen.getByText('BMI Calculator');
@@ -27,7 +16,6 @@ beforeEach(() => {
       );
       expect(textElement).toBeInTheDocument();
     });
-
    it('Should have a Weight input', () => {
     render(<BMI />);
       const inputWeight = screen.getByPlaceholderText('Weight (in kg)');
@@ -38,18 +26,15 @@ beforeEach(() => {
        const inputHeight = screen.getByPlaceholderText('Height (in cm)')
        expect(inputHeight).toBeInTheDocument();
     })
-    
     it('Should Have Calculate Button', () => {
       render(<BMI />);
        const button = screen.getByText('Calculate')
        expect(button).toBeInTheDocument();
     })
-
-
    })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
-describe('Calculate BMI correctly', () => { //calculate correctly BMI 
+ describe('Calculate BMI correctly', () => { //calculate correctly BMI 
   it('Should calculate BMI correctly for H=180,W=70', () => {
     render(<BMI />);
     fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '180' } });
@@ -66,7 +51,6 @@ describe('Calculate BMI correctly', () => { //calculate correctly BMI
     const textElement = screen.getByText('Severe Thinness. Your BMI is 13.84');
     expect(textElement).toBeInTheDocument();
   })
-
   it('Should calculate BMI correctly for H=174,W=50', () => {
     render(<BMI />);
     fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '174' } });
@@ -75,7 +59,6 @@ describe('Calculate BMI correctly', () => { //calculate correctly BMI
     const textElement = screen.getByText('Moderate Thinness. Your BMI is 16.51');
     expect(textElement).toBeInTheDocument();
   })
-
   it('Should calculate BMI correctly for H=174,W=56', () => {
     render(<BMI />);
     fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '174' } });
@@ -116,28 +99,6 @@ describe('Calculate BMI correctly', () => { //calculate correctly BMI
     const textElement = screen.getByText('Obese Class III. Your BMI is 41.52');
     expect(textElement).toBeInTheDocument();
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
 
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -222,3 +183,12 @@ describe('Calculate BMI correctly', () => { //calculate correctly BMI
 
 
 // })
+
+//import { shallow } from 'enzyme'
+
+/*
+describe('<BMI /> Test Suite', () => {
+ let wrapper
+beforeEach(() => {
+  wrapper = shallow(<BMI/>)
+ })*/

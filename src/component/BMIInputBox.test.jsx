@@ -53,13 +53,10 @@ it('validates input for weight', () => {
       reset={false}
     />
   );
-
   const inputElement = getByPlaceholderText(/Test Placeholder/i);
   fireEvent.change(inputElement, { target: { value: '900' } });
   fireEvent.blur(inputElement);
-
   expect(getByText('Please enter a valid weight')).toBeInTheDocument();
-  //expect(mockHandleValidation).toHaveBeenCalledWith('weight', false);
 });
     it('validates input for Height', () => {
     const mockHandleValidation = jest.fn();
@@ -77,7 +74,6 @@ it('validates input for weight', () => {
     fireEvent.change(inputElement, { target: { value: '900' } });
     fireEvent.blur(inputElement);
     expect(getByText('Please enter a valid height')).toBeInTheDocument();
-    //expect(mockHandleValidation).toHaveBeenCalledWith('weight', false);
         });
     it('validates input with Character/Texts', () => {
     const mockHandleValidation = jest.fn();

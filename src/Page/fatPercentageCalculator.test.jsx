@@ -82,8 +82,8 @@ import FatPercentage from "./FatPercentage"
 
 // ===========================================================================================================
 
-describe('Input have to be in length', () => {
-   it('Height should be in length', () => {
+describe('Input have to be in range correctly', () => {
+   it('Height should be in range correctly (100 - 300 cm)', () => {
       render(<FatPercentage/>);
       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '500' } });
       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });
@@ -93,7 +93,7 @@ describe('Input have to be in length', () => {
       expect(calculateButton).toBeDisabled();
    })
 
-   it('Weight should be in length', () => {
+   it('Weight should be in range correctly (15 - 300 kg)', () => {
       render(<FatPercentage/>);
       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '165' } });
       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '99999' } });
@@ -103,7 +103,7 @@ describe('Input have to be in length', () => {
       expect(calculateButton).toBeDisabled();
    })
 
-   it('Age should be in length', () => {
+   it('Age should be in range correctly (2 - 90 years old)', () => {
       render(<FatPercentage/>);
       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });

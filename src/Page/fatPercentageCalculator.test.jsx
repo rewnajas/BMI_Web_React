@@ -85,10 +85,10 @@ import FatPercentage from "./FatPercentage"
 describe('Input have to be in length', () => {
    it('Height should be in length', () => {
       render(<FatPercentage/>);
-      fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '30' } });
+      fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '500' } });
       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });
       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '32' } });
-      fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'M' } });
+      fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
       const calculateButton = screen.getByText('Calculate');
       expect(calculateButton).toBeDisabled();
    })
@@ -98,7 +98,7 @@ describe('Input have to be in length', () => {
       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '165' } });
       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '99999' } });
       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '32' } });
-      fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'M' } });
+      fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
       const calculateButton = screen.getByText('Calculate');
       expect(calculateButton).toBeDisabled();
    })
@@ -108,7 +108,7 @@ describe('Input have to be in length', () => {
       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });
       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '1' } });
-      fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'M' } });
+      fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
       const calculateButton = screen.getByText('Calculate');
       expect(calculateButton).toBeDisabled();
    })

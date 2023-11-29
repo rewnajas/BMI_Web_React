@@ -10,6 +10,9 @@ function FatPercentage() {
   const [age, setAge] = useState("");
   const [fatPercent, setFatpercent] = useState("");
   const [resetFlag, setResetFlag] = useState(false);
+
+  const [displayImage, setDisplayImage] = useState(null);
+  const [displayAlt, setdisplayAlt] = useState(null);
   
   //
   const [validationStatus, setValidationStatus] = useState({
@@ -37,6 +40,7 @@ function FatPercentage() {
     let h = height / 100;
     let bmi = weight / (h * h);
     let G = gender === "M" ? 16.2 : 5.4;
+    let calculatedFatPercent = (((1.2 * bmi) + (0.23 * age) - G).toFixed(2))
 
     setFatpercent("FatPercentage: " + (((1.2 * bmi) + (0.23 * age) - G).toFixed(2)) + "%") ;
 
@@ -62,6 +66,30 @@ function FatPercentage() {
       document.getElementById('healthy').style.flex = 23;
       document.getElementById('overweight').style.flex = 11;
       document.getElementById('obese').style.flex = 20;
+    }
+
+    if (gender === "M") {
+      if (calculatedFatPercent <= 10) {
+        setDisplayImage("https://cdn2.vectorstock.com/i/1000x1000/91/51/slender-young-man-in-shorts-front-view-cartoon-vector-32269151.jpg");
+        setdisplayAlt("ผอม")
+      } else if (calculatedFatPercent <= 20) {
+        setDisplayImage("https://t4.ftcdn.net/jpg/00/53/88/55/360_F_53885536_VFeW9gFYjVL9ckyYauItdeTsZSwkcxHx.jpg");
+        setdisplayAlt("อ้วน")
+      } else {
+        setDisplayImage("https://yt3.ggpht.com/a/AATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw=s900-c-k-c0xffffffff-no-rj-mo");
+        setdisplayAlt("chad")
+      }
+    } else {
+      if (calculatedFatPercent === 10) {
+        setDisplayImage("https://yt3.ggpht.com/a/AATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw=s900-c-k-c0xffffffff-no-rj-mo");
+        setdisplayAlt("chad")
+      } else if (calculatedFatPercent === 20) {
+        setDisplayImage("https://yt3.ggpht.com/a/AATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw=s900-c-k-c0xffffffff-no-rj-mo");
+        setdisplayAlt("chad")
+      } else {
+        setDisplayImage("");
+        setdisplayAlt("chad")
+      }
     }
   };
 
@@ -143,14 +171,14 @@ function FatPercentage() {
             <div id="marker"></div>
           </div>
         </div>
-
+        {/* Display pic based to fat percentage and gender. */}
         <div className="col-md-6">
           <div className="card">
-            <div className="crd-header">Right Side Content</div>
+            <div className="crd-header">Display สรีระ</div>
             <div className="card-body card-body-center">
               <img
-                src="https://www-assets.withings.com/pages/health-insights/about-body-fat/media/body-fat-chart-w-mobile.png"
-                alt="Additional Content"
+                src={displayImage}
+                alt={displayAlt}
                 style={{ width: "60%", height: "auto" }}
               />
             </div>

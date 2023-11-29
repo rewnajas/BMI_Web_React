@@ -69,26 +69,50 @@ function FatPercentage() {
     }
 
     if (gender === "M") {
-      if (calculatedFatPercent <= 10) {
-        setDisplayImage("https://cdn2.vectorstock.com/i/1000x1000/91/51/slender-young-man-in-shorts-front-view-cartoon-vector-32269151.jpg");
-        setdisplayAlt("ผอม")
-      } else if (calculatedFatPercent <= 20) {
-        setDisplayImage("https://t4.ftcdn.net/jpg/00/53/88/55/360_F_53885536_VFeW9gFYjVL9ckyYauItdeTsZSwkcxHx.jpg");
-        setdisplayAlt("อ้วน")
+      if (calculatedFatPercent <= 0) {
+        setDisplayImage(require('../img/bodyfat/sk.png'));
+        setdisplayAlt("sk.png")
+      } else if (calculatedFatPercent <= 15) {
+        setDisplayImage(require('../img/bodyfat/m1.png'));
+        setdisplayAlt("m1.png")
+      }  else if (calculatedFatPercent <= 20) {
+        setDisplayImage(require('../img/bodyfat/m2.png'));
+        setdisplayAlt("m2.png")
+      }  else if (calculatedFatPercent <= 30) {
+        setDisplayImage(require('../img/bodyfat/m3.png'));
+        setdisplayAlt("m3.png")
+      }  else if (calculatedFatPercent <= 40) {
+        setDisplayImage(require('../img/bodyfat/m4.png'));
+        setdisplayAlt("m4.png")
+      }  else if (calculatedFatPercent <= 50) {
+        setDisplayImage(require('../img/bodyfat/m5.png'));
+        setdisplayAlt("m5.png")
       } else {
-        setDisplayImage("https://yt3.ggpht.com/a/AATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw=s900-c-k-c0xffffffff-no-rj-mo");
-        setdisplayAlt("chad")
+        setDisplayImage(require('../img/bodyfat/m6.png'));
+        setdisplayAlt("m6.png")
       }
     } else {
-      if (calculatedFatPercent === 10) {
-        setDisplayImage("https://yt3.ggpht.com/a/AATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw=s900-c-k-c0xffffffff-no-rj-mo");
-        setdisplayAlt("chad")
-      } else if (calculatedFatPercent === 20) {
-        setDisplayImage("https://yt3.ggpht.com/a/AATXAJwHtNQ3gmC4UgCGIxfF0vHwovhxbhEWPzHmcw=s900-c-k-c0xffffffff-no-rj-mo");
-        setdisplayAlt("chad")
+      if (calculatedFatPercent <= 5) {
+        setDisplayImage(require('../img/bodyfat/sk.png'));
+        setdisplayAlt("sk.png")
+      } else if (calculatedFatPercent <= 15) {
+        setDisplayImage(require('../img/bodyfat/f1.png'));
+        setdisplayAlt("f1.png")
+      }  else if (calculatedFatPercent <= 30) {
+        setDisplayImage(require('../img/bodyfat/f2.png'));
+        setdisplayAlt("f2.png")
+      }  else if (calculatedFatPercent <= 35) {
+        setDisplayImage(require('../img/bodyfat/f3.png'));
+        setdisplayAlt("f3.png")
+      }  else if (calculatedFatPercent <= 45) {
+        setDisplayImage(require('../img/bodyfat/f4.png'));
+        setdisplayAlt("f4.png")
+      }  else if (calculatedFatPercent <= 50) {
+        setDisplayImage(require('../img/bodyfat/f5.png'));
+        setdisplayAlt("f5.png")
       } else {
-        setDisplayImage("");
-        setdisplayAlt("chad")
+        setDisplayImage(require('../img/bodyfat/f6.png'));
+        setdisplayAlt("f6.png")
       }
     }
   };
@@ -179,7 +203,7 @@ function FatPercentage() {
               <img
                 src={displayImage}
                 alt={displayAlt}
-                style={{ width: "60%", height: "auto" }}
+                style={{ width: "auto", height: "95%" }}
               />
             </div>
           </div>

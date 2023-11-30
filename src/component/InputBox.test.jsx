@@ -114,10 +114,86 @@ it('validates input for weight', () => {
     />
   );
   const inputElement = getByPlaceholderText(/Test Placeholder/i);
-  fireEvent.change(inputElement, { target: { value: '900' } });
+  fireEvent.change(inputElement, { target: { value: '301' } });
   fireEvent.blur(inputElement);
   expect(getByText('Please enter a valid weight')).toBeInTheDocument();
 });
+it('validates input for weight<15', () => {
+  const mockHandleValidation = jest.fn();
+  const { getByPlaceholderText, getByText } = render(
+    <InputBox
+      laBel="Test Label"
+      placeholder="Test Placeholder"
+      dataType="weight"
+      handleValidation={mockHandleValidation}
+      setValue={() => {}}
+      reset={false}
+    />
+  );
+  const inputElement = getByPlaceholderText(/Test Placeholder/i);
+  fireEvent.change(inputElement, { target: { value: 'hello' } });
+  fireEvent.blur(inputElement);
+  expect(getByText('Please enter a valid weight')).toBeInTheDocument();
+});
+
+
+it('validates input for weight<15', () => {
+  const mockHandleValidation = jest.fn();
+  const { getByPlaceholderText, getByText } = render(
+    <InputBox
+      laBel="Test Label"
+      placeholder="Test Placeholder"
+      dataType="weight"
+      handleValidation={mockHandleValidation}
+      setValue={() => {}}
+      reset={false}
+    />
+  );
+  const inputElement = getByPlaceholderText(/Test Placeholder/i);
+  fireEvent.change(inputElement, { target: { value: '2' } });
+  fireEvent.blur(inputElement);
+  expect(getByText('Please enter a valid weight')).toBeInTheDocument();
+});
+
+it('validates input for weight<15', () => {
+  const mockHandleValidation = jest.fn();
+  const { getByPlaceholderText, getByText } = render(
+    <InputBox
+      laBel="Test Label"
+      placeholder="Test Placeholder"
+      dataType="weight"
+      handleValidation={mockHandleValidation}
+      setValue={() => {}}
+      reset={false}
+    />
+  );
+  const inputElement = getByPlaceholderText(/Test Placeholder/i);
+  fireEvent.change(inputElement, { target: { value: 'hello' } });
+  fireEvent.blur(inputElement);
+  expect(getByText('Please enter a valid weight')).toBeInTheDocument();
+});
+
+describe('Should handles input change and sets value', () => {
+  it('handles input change and sets value', () => {
+    let testValue = '';
+    const { getByPlaceholderText } = render(
+      <InputBox
+        laBel="Test Label"
+        placeholder="Test Placeholder"
+        dataType="weight"
+        handleValidation={() => {}}
+        setValue={(value) => (testValue = value)}
+        reset={false}
+      />
+    );
+    const inputElement = getByPlaceholderText(/Test Placeholder/i);
+    fireEvent.change(inputElement, { target: { value: '50' } });
+    expect(testValue).toBe('50');
+      });
+   })
+
+
+
     it('validates input for Height', () => {
     const mockHandleValidation = jest.fn();
     const { getByPlaceholderText, getByText } = render(

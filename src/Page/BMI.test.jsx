@@ -2,6 +2,36 @@ import { render, screen,fireEvent } from "@testing-library/react";
 import React from "react";
 import '@testing-library/jest-dom'
 import BMI from './BMI';
+/*
+import handleValidation from './BMI';
+handleValidation
+it('updates validation status correctly', () => {
+  
+const mockSetValidationStatus = jest.fn();
+
+// Mock the state for testing
+const mockPrevStatus = { existingDataType: true };
+
+// Mock the useState hook
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useState: (initialState) => [initialState, mockSetValidationStatus],
+}));
+  // Initial setup
+  const dataType = 'height';
+  const isValid = true;
+
+  // Call the function
+  handleValidation(dataType, isValid);
+  setValidationStatus
+  // Assertion
+  expect(mockSetValidationStatus).toHaveBeenCalledWith({
+    ...mockPrevStatus,
+    [dataType]: isValid,
+  });
+});
+*/
+// Add more test cases as needed
  describe('Display correctly BMIcal page', () => {  // Display BMI calculator
     it('Should have a heading with the text "BMI Calculator"', () => {
       render(<BMI />);

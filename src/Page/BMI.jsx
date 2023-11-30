@@ -48,7 +48,7 @@ export default function BMI() {
     } else if (bmi >= 35 && bmi < 40) {
       setMessage("Obese Class II. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
-    } else if (bmi >= 40) {
+    } else {
       setMessage("Obese Class III. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
     }

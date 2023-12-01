@@ -4,8 +4,8 @@ import "../Style/FatPercentage.css";
 import InputBox from "../component/InputBox";
 
 export default function BMI() {
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
   const [message, setMessage] = useState("");
   const [bmi, setBMI] = useState("");
 
@@ -77,7 +77,10 @@ export default function BMI() {
           validationStatus={validationStatus}
         />
 
-        <button className="button button-calc" onClick={calculateBMI} disabled={Object.values(validationStatus).includes(false)}>
+        <button className="button button-calc" onClick={calculateBMI} disabled={Object.values(validationStatus).includes(false) ||
+          height === "" ||
+          weight === ""
+        }>
           Calculate
         </button>
       </div>

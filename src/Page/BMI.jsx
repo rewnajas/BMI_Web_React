@@ -11,8 +11,8 @@ export default function BMI() {
 
   //
   const [validationStatus, setValidationStatus] = useState({
-    height: true,
-    width: true,
+    height: false,
+    width: false,
   });
 
   const handleValidation = (dataType, isValid) => {
@@ -23,6 +23,7 @@ export default function BMI() {
   };
   //
 
+  
   function calculateBMI() {
     const h = height / 100;
     const bmi = weight / (h * h);
@@ -60,6 +61,21 @@ export default function BMI() {
       <span>
         Let's calculate your Body Mass Index. <br></br> Type the values below
       </span>
+        <div className="area-input">
+          <InputBox
+            dataType="height"
+            placeholder={"Height (in cm)"}
+            setValue={setHeight}
+            handleValidation={handleValidation}
+            validationStatus={validationStatus}
+          />
+          <InputBox
+            dataType="weight"
+            placeholder={"Weight (in kg)"}
+            setValue={setWeight}
+            handleValidation={handleValidation}
+            validationStatus={validationStatus}
+          />
 
       <div className="area-input" >
         <InputBox

@@ -2,7 +2,9 @@ import { render, screen,fireEvent } from "@testing-library/react";
 import React from "react";
 import '@testing-library/jest-dom'
 import BMI from './BMI';
- describe('Display correctly BMIcal page', () => {  // Display BMI calculator
+//import Image from '../img/teststub.png';
+// Add more test cases as needed
+ describe('Display correctly BMIcal page', () => {  // Display ALL attribute in BMI calculator
     it('Should have a heading with the text "BMI Calculator"', () => {
       render(<BMI />);
       const headingText = screen.getByText('BMI Calculator');
@@ -33,15 +35,20 @@ import BMI from './BMI';
     })
    })
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 
+//=======> Add picture and Bar!!!!!! for valid input&output
+//=====> Add check display for Bar
  describe('Calculate BMI correctly', () => { //calculate correctly BMI 
   it('Should calculate BMI correctly for H=180,W=70', () => {
-    render(<BMI />);
+    render(<BMI
+      
+      />);
     fireEvent.change(screen.getByPlaceholderText('Height (in cm)'), { target: { value: '180' } });
     fireEvent.change(screen.getByPlaceholderText('Weight (in kg)'), { target: { value: '70' } });
     fireEvent.click(screen.getByText('Calculate'));
     const textElement = screen.getByText('Healthy weight. Your BMI is 21.60');
-    expect(textElement).toBeInTheDocument();
+    expect(textElement).toBeInTheDocument(); 
+    const testImage = screen.getByTestId('img')//get img for test
+    const testBar = screen.getByTestId('bar')//get valid bar
   })
   it('should calculate BMI correctly for H=170,W=40', () => {
     render(<BMI />);
@@ -100,6 +107,44 @@ import BMI from './BMI';
     expect(textElement).toBeInTheDocument();
   })
 })
+test('handleValidation should update validationStatus correctly', () => {
+  // Render the component
+  const { getByPlaceholderText, getByText } = render(<BMI />);
+
+  // Get height and weight input elements
+  const heightInputElement = getByPlaceholderText('Height (in cm)');
+  const weightInputElement = getByPlaceholderText('Weight (in kg)');
+
+  // Helper function to set input value and trigger blur event
+  const setAndBlur = (inputElement, value) => {
+    fireEvent.change(inputElement, { target: { value } });
+    fireEvent.blur(inputElement);
+  };
+
+  // Set invalid height (less than 100)
+  setAndBlur(heightInputElement, '90');
+
+  // Check if validationStatus is updated correctly
+  expect(getByText('Calculate')).toBeDisabled();
+  
+  // Set valid height
+  setAndBlur(heightInputElement, '170');
+
+  // Check if validationStatus is updated correctly
+  expect(getByText('Calculate')).not.toBeDisabled();
+  
+  // Set invalid weight (less than 15)
+  setAndBlur(weightInputElement, '10');
+
+  // Check if validationStatus is updated correctly
+  expect(getByText('Calculate')).toBeDisabled();
+  
+  // Set valid weight
+  setAndBlur(weightInputElement, '70');
+
+  // Check if validationStatus is updated correctly
+  expect(getByText('Calculate')).not.toBeDisabled();
+});
 
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*

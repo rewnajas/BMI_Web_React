@@ -26,8 +26,8 @@ const InputBox = ({
 
   const validateInput = () => {
     if (inputValue.trim() === "") {
-      setError("");
-      return true; //if InputBox == empty => still valid
+      setError("required*");
+      return false; //if InputBox == empty => not valid
     }
 
     if (dataType === "weight") {

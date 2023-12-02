@@ -6,6 +6,7 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import BMI from "../Page/BMI";
 import FatPercentage from "../Page/FatPercentage";
+import RcW from "../Page/RcW";
 import "../Style/SideNavBar.css";
 import { LuMenuSquare } from "react-icons/lu";
 
@@ -68,6 +69,14 @@ function SideNavBar() {
                     </button>
                   </Link>
                 </LinkContainer>
+                <LinkContainer to="/VDOrec">
+                  <Link className="link-text">
+                    <button type="button" class="btn btn-outline-warning sideNavBar-button btn-lg">
+                    <i class='bx bx-body' style={{ marginRight: '16px' }}></i>
+                      Video Recommend
+                    </button>
+                  </Link>
+                </LinkContainer>
               </div>
           </Offcanvas.Body>
         </Offcanvas>
@@ -75,6 +84,7 @@ function SideNavBar() {
         <Routes>
           <Route path="/react-bmi" element={<BMI />} />
           <Route path="/FatCal" element={<FatPercentage />} />
+          <Route path="/VDOrec" element={<RcW />} />
         </Routes>
       </BrowserRouter>
     </div>

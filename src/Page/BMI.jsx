@@ -36,49 +36,49 @@ export default function BMI() {
       setMessage("Severe Thinness. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b1.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b1.0");
       textColor = "#5bc4fc";
     } else if (bmi >= 16 && bmi < 17) {
       setMessage("Moderate Thinness. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b1.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b1.1");
       textColor = "#5bc4fc";
     } else if (bmi >= 17 && bmi < 18.5) {
       setMessage("Mild Thinness. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b1.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b1.2");
       textColor = "#5bc4fc";
     } else if (bmi >= 18.5 && bmi < 25) {
       setMessage("Healthy weight. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b2.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b2.0");
       textColor = "#81afdf";
     } else if (bmi >= 25 && bmi < 30) {
       setMessage("Overweight. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b3.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b3.0");
       textColor = "#a878bd";
     } else if (bmi >= 30 && bmi < 35) {
       setMessage("Obese Class I. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b4.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b4.0");
       textColor = "#da6f98";
     } else if (bmi >= 35 && bmi < 40) {
       setMessage("Obese Class II. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b4.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b4.1");
       textColor = "#da6f98";
-    } else if (bmi >= 40) {
+    } else{
       setMessage("Obese Class III. ");
       setBMI("Your BMI is " + bmi.toFixed(2));
       setDisplayImage(require('../img/bmi/b5.png'));
-      setdisplayAlt("");
+      setdisplayAlt("b5.0");
       textColor = "#f8476e";
     }
 

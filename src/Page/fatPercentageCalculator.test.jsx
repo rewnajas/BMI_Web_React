@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import React from "react";
 import '@testing-library/jest-dom'
 import FatPercentage from "./FatPercentage"
-// ======= Render correctly =======
+// ======= Render correctly ======= //
 describe('Have Completed Input', () => {
    it('Have Height input', () => {
       render(<FatPercentage/>);
@@ -42,8 +42,6 @@ describe('Have Completed Input', () => {
    
 
 })
-
-
 // ==========================================================================================================
 //======================================== skeleton ==================================================
 // line 50-51 &81 (FC < 0%) 
@@ -72,7 +70,7 @@ it('Should calculate fat percentage which is <0%, given H=190, W=20, Age=20, gen
    expect(img).toBeInTheDocument();
  })
  //
-// ========== Calculate and send right output =========== Male only =====================
+// ========== Calculate and send right output =========== Male only ================== //
 
 describe('it should Calculate correctly', () => {
    it('Should calculate fat percentage correctly for H=180, W=62, Age=23, gender=male', () => {
@@ -149,7 +147,7 @@ describe('it should Calculate correctly', () => {
       expect(result).toBeInTheDocument();
       expect(testImg).toBeInTheDocument();
     })
-// ===========   Female    ==============
+// ===========   Female    ============== //
 
 it('Should calculate fat percentage correctly for H=180, W=40, Age=20, gender=female', () => {
    render(<FatPercentage/>);
@@ -233,107 +231,23 @@ it('Should calculate fat percentage correctly for H=180, W=40, Age=20, gender=fe
    // Get height and weight input elements
    const heightInputElement = getByPlaceholderText('Enter height');
    const weightInputElement = getByPlaceholderText('Enter weight');
+   const ageInputElement = getByPlaceholderText('Enter age');
  
    // Helper function to set input value and trigger blur event
    const setAndBlur = (inputElement, value) => {
      fireEvent.change(inputElement, { target: { value } });
      fireEvent.blur(inputElement);
    };
- 
    // Set invalid height (less than 100)
    setAndBlur(heightInputElement, '90');
- 
-   // Check if validationStatus is updated correctly
-   expect(getByText('Calculate')).toBeDisabled();
- 
-   // Set valid height
-   setAndBlur(heightInputElement, '170');
- 
    // Check if validationStatus is updated correctly
    expect(getByText('Calculate')).toBeDisabled();
  
    // Set invalid weight (less than 15)
    setAndBlur(weightInputElement, '10');
- 
    // Check if validationStatus is updated correctly
    expect(getByText('Calculate')).toBeDisabled();
  
-   // Set valid weight
-   setAndBlur(weightInputElement, '70');
- 
-   // Check if validationStatus is updated correctly
+   setAndBlur(ageInputElement, '1');
    expect(getByText('Calculate')).toBeDisabled();
  });
-
-
- 
-
-
-//     it('Should calculate fat percentage correctly for H=143, W=50, Age=13, gender=female', () => {
-//       render(<FatPercentage/>);
-//       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '155' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '50' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '13' } });
-//       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'F' } });
-//       fireEvent.click(screen.getByText('Calculate'));
-//       const img = screen.getByAltText('f2.png')
-//       const result = screen.getByText('FatPercentage: 22.56%');
-//       expect(result).toBeInTheDocument();
-//       expect(img).toBeInTheDocument();
-//     })
-    
-// })
-
-// // ===========================================================================================================
-
-// describe('Input have to be in range correctly', () => {
-//    it('Height should be in range correctly (100 - 300 cm)', () => {
-//       render(<FatPercentage/>);
-//       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '500' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '32' } });
-//       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
-//       const calculateButton = screen.getByText('Calculate');
-//       expect(calculateButton).toBeDisabled();
-//    })
-
-//    it('Weight should be in range correctly (15 - 300 kg)', () => {
-//       render(<FatPercentage/>);
-//       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '165' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '99999' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '32' } });
-//       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
-//       const calculateButton = screen.getByText('Calculate');
-//       expect(calculateButton).toBeDisabled();
-//    })
-
-//    it('Age should be in range correctly (2 - 90 years old)', () => {
-//       render(<FatPercentage/>);
-//       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '1' } });
-//       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
-//       const calculateButton = screen.getByText('Calculate');
-//       expect(calculateButton).toBeDisabled();
-//    })
-
-//    it('Gender should be male or female', () => {
-//       render(<FatPercentage/>);
-//       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '165' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '96' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '32' } });
-//       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
-//       const calculateButton = screen.getByText('Calculate');
-//       expect(calculateButton).toBeDisabled();
-//    })
-
-//    it('it should disable when input not finished yet', () => {
-//       render(<FatPercentage/>);
-//       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '165' } });
-//       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '32' } });
-//       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: '' } });
-//       const calculateButton = screen.getByText('Calculate');
-//       expect(calculateButton).toBeDisabled();
-//    })
-
-

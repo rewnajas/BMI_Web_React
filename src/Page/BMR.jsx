@@ -45,19 +45,15 @@ function BMR() {
     if(gender === 'M') {
         setBMR("BMR: " + ((66 + (13.7*weight) + (5*height) - (6.8*age))*freqE).toFixed(2) + " Kilocalories");
       bmrAns = ((66 + (13.7*weight) + (5*height) - (6.8*age))*freqE) 
-    }else if(gender === 'F'){
+    }
+    if(gender === 'F'){
         setBMR("BMR: " + ((665 + (9.6*weight) + (1.8*height) - (4.7*age))*freqE).toFixed(2) + " KiloCalories");
       bmrAns = ((665 + (9.6*weight) + (1.8*height) - (4.7*age))*freqE) 
-    }else{
-        setBMR("");
     }
 
 
     // case show flame pic
-    if (bmrAns <= 0) {
-      setDisplayImage(require("../img/fpic/f1.png"));
-      setdisplayAlt("f1.png");
-    } else if (bmrAns <= 1500) {
+  if (bmrAns <= 1500) {
       setDisplayImage(require("../img/fpic/f1.png"));
       setdisplayAlt("f1.png");
     } else if (bmrAns <= 2000) {
@@ -69,7 +65,7 @@ function BMR() {
     } else if (bmrAns <= 2500) {
       setDisplayImage(require("../img/fpic/f4.png"));
       setdisplayAlt("f4.png");
-    } else if (bmrAns > 2500) {
+    } else{
       setDisplayImage(require("../img/fpic/f5.png"));
       setdisplayAlt("f5.png");
     } 

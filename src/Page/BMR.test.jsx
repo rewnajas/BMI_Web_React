@@ -58,20 +58,7 @@ describe('Have Completed Input', () => {
 
 
  describe('it should Calculate correctly', () => {
-    it('Should calculate fat percentage correctly for H=180, W=62, Age=23, gender=male', () => {
-       render(<BMR/>);
-       fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
-       fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '62' } });
-       fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '23' } });
-       fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'M' } });
-       fireEvent.change(screen.getByLabelText('Frequency Exercise'), { target: { value: '1.375' } }); //1-3 per week
-       fireEvent.click(screen.getByText('Calculate'));
-       const result = screen.getByText('BMR: 2281.13 Kilocalories');
-       const testImg = screen.getByAltText('f3.png')
-       expect(result).toBeInTheDocument();
-       expect(testImg).toBeInTheDocument();
-     })  
-
+    //======male case============================================================================================
      it('Should calculate fat percentage correctly for H=150, W=25, Age=20, gender=male, Frequency Exercise 1-3 day/week', () => {
         render(<BMR/>);
         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '150' } });
@@ -144,6 +131,81 @@ describe('Have Completed Input', () => {
         expect(testImg).toBeInTheDocument();
         
       })
+      //======female case============================================================================================
+      it('Should calculate fat percentage correctly for H=150, W=25, Age=20, gender=female, Frequency Exercise 1-3 day/week', () => {
+         render(<BMR/>);
+         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '150' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '25' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '20' } });
+         fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'F' } });
+         fireEvent.change(screen.getByLabelText('Frequency Exercise'), { target: { value: '1.375' } }); //1-3 per week
+         fireEvent.click(screen.getByText('Calculate'));
+         const result = screen.getByText('BMR: 1486.38 KiloCalories');
+         const testImg = screen.getByAltText('f1.png')
+         expect(result).toBeInTheDocument();
+         expect(testImg).toBeInTheDocument();
+       })
+ 
+       it('Should calculate fat percentage correctly for H=160, W=30, Age=22, gender=female, Frequency Exercise 1-3 day/week', () => {
+         render(<BMR/>);
+         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '30' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '22' } });
+         fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'F' } });
+         fireEvent.change(screen.getByLabelText('Frequency Exercise'), { target: { value: '1.375' } }); //1-3 per week
+         fireEvent.click(screen.getByText('Calculate'));
+         const result = screen.getByText('BMR: 1564.20 KiloCalories');
+         const testImg = screen.getByAltText('f2.png')
+         expect(result).toBeInTheDocument();
+         expect(testImg).toBeInTheDocument();
+       })
+ 
+       it('Should calculate fat percentage correctly for H=160, W=30, Age=22, gender=female, Frequency Exercise sportperson', () => {
+         render(<BMR/>);
+         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '30' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '22' } });
+         fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'F' } });
+         fireEvent.change(screen.getByLabelText('Frequency Exercise'), { target: { value: '1.9' } }); //sportperson
+         fireEvent.click(screen.getByText('Calculate'));
+         const result = screen.getByText('BMR: 2161.44 KiloCalories');
+         const testImg = screen.getByAltText('f3.png')
+         expect(result).toBeInTheDocument();
+         expect(testImg).toBeInTheDocument();
+       })
+ 
+     
+       it('Should calculate fat percentage correctly for H=180, W=70, Age=22, gender=female, Frequency Exercise 3-5 day/week', () => {
+         render(<BMR/>);
+         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '70' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '22' } });
+         fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'F' } });
+         fireEvent.change(screen.getByLabelText('Frequency Exercise'), { target: { value: '1.55' } }); //3-5 day/week
+         fireEvent.click(screen.getByText('Calculate'));
+         const result = screen.getByText('BMR: 2414.28 KiloCalories');
+         const testImg = screen.getByAltText('f4.png')
+         expect(result).toBeInTheDocument();
+         expect(testImg).toBeInTheDocument();
+         
+       })
+ 
+       it('Should calculate fat percentage correctly for H=180, W=70, Age=25, gender=female, Frequency Exercise  sportperson', () => {
+         render(<BMR/>);
+         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '70' } });
+         fireEvent.change(screen.getByPlaceholderText('Enter age'), { target: { value: '25' } });
+         fireEvent.change(screen.getByLabelText('Gender'), { target: { value: 'F' } });
+         fireEvent.change(screen.getByLabelText('Frequency Exercise'), { target: { value: '1.9' } }); //sportperson
+         fireEvent.click(screen.getByText('Calculate'));
+         const result = screen.getByText('BMR: 2932.65 KiloCalories');
+         const testImg = screen.getByAltText('f5.png')
+         expect(result).toBeInTheDocument();
+         expect(testImg).toBeInTheDocument();
+         
+       })
+       
+ 
       
 
 
@@ -159,6 +221,7 @@ describe('Have Completed Input', () => {
     // Get height and weight input elements
     const heightInputElement = getByPlaceholderText('Enter height');
     const weightInputElement = getByPlaceholderText('Enter weight');
+    const ageInputElement = getByPlaceholderText('Enter age');
   
     // Helper function to set input value and trigger blur event
     const setAndBlur = (inputElement, value) => {
@@ -189,6 +252,9 @@ describe('Have Completed Input', () => {
   
     // Check if validationStatus is updated correctly
     expect(getByText('Calculate')).toBeDisabled();
+
+    setAndBlur(ageInputElement, '1');
+   expect(getByText('Calculate')).toBeDisabled();
   });
 
 

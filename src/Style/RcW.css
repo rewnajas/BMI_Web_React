@@ -1,0 +1,28 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 16px;
+    row-gap: 16px;
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 980px) {
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.box {
+    border: none;
+    border-radius: 15px;
+    color: white;
+    background-color: rgb(255, 122, 56);
+    font-weight: 500;
+    font-size: 14px;
+    padding: 3px 6px; 
+    display: inline-block;
+}
+
+h6 {
+    padding: 32px;
+}

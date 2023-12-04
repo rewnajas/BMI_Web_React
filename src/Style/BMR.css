@@ -7,28 +7,21 @@
     }
 }
 
-.output-font {
-    margin-top: 16px;
-    font-size: 24px;
-    font-weight: 800;
-    color: #20aa59;
-    
-}
-
 /* Card */
 
 .crd-header {
     margin-top: 18px;
     margin-left: 16px;
     margin-bottom: 22px;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
+    font-family: "PT Sans", Calibri, Tahoma, sans-serif;
 }
 
 .card-body {
     display: flex;
     flex-direction: column;
-    height: 380px;
+    height: 500px;
 }
 
 .card-body-center {
@@ -123,45 +116,7 @@ input[type="text"]:focus {
     margin-bottom: 16px;
 }
 
-/* Bar */
 
-#bodyFatBar {
-    display: none;
-    justify-content: center;
-    position: relative;
-    width: auto;
-    height: 30px;
-    background-color: #eee;
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 20px auto;
-    animation: pop 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.barSegment {
-    flex: 1;
-    transition: background-color 0.5s;
-}
-
-.underweight {
-    flex: 46;
-    background-color: #3498db; /* Blue shade */
-}
-
-.healthy {
-    flex: 23;
-    background-color: #2ecc71; /* Green shade */
-}
-
-.overweight {
-    flex: 11;
-    background-color: #f39c12; /* Orange shade */
-}
-
-.obese {
-    flex: 20;
-    background-color: #e74c3c; /* Red shade */
-}
 
 #marker {
     position: absolute;
@@ -171,5 +126,13 @@ input[type="text"]:focus {
     background-color: #000; /* Marker color */
     transform: translateX(-50%);
 }
+.mt-4 {
+    font-size: 24px;
+}
 
-/* Display Picture */
+.output-font {
+    margin-top: 16px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #20aa59;
+}

@@ -26,8 +26,8 @@ const InputBox = ({
 
   const validateInput = () => {
     if (inputValue.trim() === "") {
-      setError("");
-      return true; //if InputBox == empty => still valid
+      setError("required*");
+      return false; //if InputBox == empty => not valid
     }
 
     if (dataType === "weight") {
@@ -40,7 +40,7 @@ const InputBox = ({
         setError("Please enter a valid height");
         return false;
       }
-    } else if (dataType === "age") {
+    } else {
       if (!Regex.test(inputValue) || inputValue < 2 || inputValue > 90) {
         setError("Please enter a valid age");
         return false;

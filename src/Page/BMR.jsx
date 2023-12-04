@@ -173,7 +173,7 @@ function BMR() {
             </div>
           </div>
           
-          <center className="mt-4">{BMR}</center>
+          <center className="output-font">{BMR}</center>
 
           
         </div>

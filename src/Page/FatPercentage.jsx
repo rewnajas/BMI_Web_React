@@ -207,7 +207,7 @@ function FatPercentage() {
             </div>
           </div>
 
-          <center className="mt-4">{fatPercent}</center>
+          <center className="output-font">{fatPercent}</center>
 
           <div id="bodyFatBar">
             <div className="barSegment underweight" id="underweight"></div>
@@ -220,7 +220,7 @@ function FatPercentage() {
         {/* Display pic based to fat percentage and gender. */}
         <div className="col-md-6">
           <div className="card">
-            <div className="crd-header">Display สรีระ</div>
+            <div className="crd-header">Estimate Your Body</div>
             <div className="card-body card-body-center">
               <img
                 src={displayImage}

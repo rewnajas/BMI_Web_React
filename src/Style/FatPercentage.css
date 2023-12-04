@@ -7,6 +7,14 @@
     }
 }
 
+.output-font {
+    margin-top: 16px;
+    font-size: 24px;
+    font-weight: 800;
+    color: #20aa59;
+    
+}
+
 /* Card */
 
 .crd-header {

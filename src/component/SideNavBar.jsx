@@ -60,7 +60,8 @@ function SideNavBar() {
                 <Link className="link-text">
                   <button
                     type="button"
-                    class="btn btn-outline-warning sideNavBar-button btn-lg"
+                    class="sideNavBar-button"
+                    onClick={handleClose}
                   >
                     <i
                       class="bx bx-calculator"
@@ -74,7 +75,8 @@ function SideNavBar() {
                 <Link className="link-text">
                   <button
                     type="button"
-                    class="btn btn-outline-warning sideNavBar-button btn-lg"
+                    class="sideNavBar-button"
+                    onClick={handleClose}
                   >
                     <i class="bx bx-body" style={{ marginRight: "16px" }}></i>
                     Fat Percentage Calculator
@@ -83,8 +85,11 @@ function SideNavBar() {
               </LinkContainer>
               <LinkContainer to="/BMR">
                   <Link className="link-text">
-                    <button type="button" class="btn btn-outline-warning sideNavBar-button btn-lg">
-                    <i class='bx bx-body' style={{ marginRight: '16px' }}></i>
+                    <button type="button" 
+                    class="sideNavBar-button" 
+                    onClick={handleClose}
+                    >
+                    <i class='bx bxs-hot' style={{ marginRight: '16px' }}></i>
                       BMR Calculator
                     </button>
                   </Link>

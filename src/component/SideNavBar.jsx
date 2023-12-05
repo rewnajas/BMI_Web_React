@@ -72,18 +72,7 @@ function SideNavBar() {
                   </button>
                 </Link>
               </LinkContainer>
-              <LinkContainer to="/FatCal">
-                <Link className="link-text">
-                  <button
-                    type="button"
-                    class="sideNavBar-button"
-                    onClick={handleClose}
-                  >
-                    <i class="bx bx-body" style={{ marginRight: "16px" }}></i>
-                    Fat Percentage Calculator
-                  </button>
-                </Link>
-              </LinkContainer>
+           
               <LinkContainer to="/BMR">
                   <Link className="link-text">
                     <button type="button" 
@@ -112,7 +101,6 @@ function SideNavBar() {
                   </Link>
                 </LinkContainer>
               </div>
-            </div>
           </Offcanvas.Body>
         </Offcanvas>
 

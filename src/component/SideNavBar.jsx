@@ -6,8 +6,11 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import BMI from "../Page/BMI";
 import FatPercentage from "../Page/FatPercentage";
+import RcW from "../Page/RcW";
+import BMR from "../Page/BMR";
 import "../Style/SideNavBar.css";
 import { LuMenuSquare } from "react-icons/lu";
+import { MdPlayArrow } from "react-icons/md";
 
 function SideNavBar() {
   const [showOffcanvas, setShowOffcanvas] = useState(false);
@@ -18,21 +21,21 @@ function SideNavBar() {
   return (
     <div>
       <BrowserRouter>
-      <Button
+        <Button
           variant="primary"
+          // onMouseOver={handleShow}
           onClick={handleShow}
-
           style={{
             position: "fixed",
-            top: 0,
+            height : '100%',
+            top : 0,
             left: 0,
             zIndex: 1000, // Adjust as needed based on your layout
-            backgroundColor:'rgb(255, 122, 56)',
-            border: '0',
-            
+            backgroundColor: "rgb(255, 122, 56)",
+            border: "0",
           }}
         >
-          <LuMenuSquare
+          <MdPlayArrow
             style={{
               height: "40px",
               width: "40px",
@@ -47,16 +50,37 @@ function SideNavBar() {
           scroll={true}
         >
           <Offcanvas.Header closeButton style={{ backgroundColor: "white" }}>
-            <Offcanvas.Title class="navtitle"><i class='bx bx-dumbbell' style={{ marginRight: '16px' }}></i>CS266 N03</Offcanvas.Title>
+            <Offcanvas.Title class="navtitle">
+              <i class="bx bx-dumbbell" style={{ marginRight: "16px" }}></i>
+              CS266 N03
+            </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body style={{ backgroundColor: "white" }}>
-            
-              <div className="d-grid gap-2">
-                <LinkContainer to="/react-bmi">
+            <div className="d-grid gap-2">
+              <LinkContainer to="/react-bmi">
+                <Link className="link-text">
+                  <button
+                    type="button"
+                    class="sideNavBar-button"
+                    onClick={handleClose}
+                  >
+                    <i
+                      class="bx bx-calculator"
+                      style={{ marginRight: "16px" }}
+                    ></i>
+                    BMI Calculator
+                  </button>
+                </Link>
+              </LinkContainer>
+           
+              <LinkContainer to="/BMR">
                   <Link className="link-text">
-                    <button type="button" class="btn btn-outline-warning sideNavBar-button btn-lg">
-                      <i class='bx bx-calculator' style={{ marginRight: '16px' }}></i>
-                      BMI Calculator
+                    <button type="button" 
+                    class="sideNavBar-button" 
+                    onClick={handleClose}
+                    >
+                    <i class='bx bxs-hot' style={{ marginRight: '16px' }}></i>
+                      BMR Calculator
                     </button>
                   </Link>
                 </LinkContainer>
@@ -68,6 +92,14 @@ function SideNavBar() {
                     </button>
                   </Link>
                 </LinkContainer>
+                <LinkContainer to="/VDOrec">
+                  <Link className="link-text">
+                    <button type="button" class="btn btn-outline-warning sideNavBar-button btn-lg">
+                    <i class='bx bx-body' style={{ marginRight: '16px' }}></i>
+                      Video Recommend
+                    </button>
+                  </Link>
+                </LinkContainer>
               </div>
           </Offcanvas.Body>
         </Offcanvas>
@@ -75,6 +107,8 @@ function SideNavBar() {
         <Routes>
           <Route path="/react-bmi" element={<BMI />} />
           <Route path="/FatCal" element={<FatPercentage />} />
+          <Route path="/BMR" element={<BMR />} />
+          <Route path="/VDOrec" element={<RcW />} />
         </Routes>
       </BrowserRouter>
     </div>

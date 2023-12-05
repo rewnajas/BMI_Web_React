@@ -32,7 +32,7 @@ export default function RcW() {
         </Row>
         <h6>{filter}</h6>
         
-        <div class="grid grid-2" >
+        <div className="grid grid-2" >
           {filter === ""
             ? video
                 .map((item, key) => (
@@ -52,7 +52,7 @@ export default function RcW() {
                             <div className="card-body">
                               <h5>{item.name}</h5>
                               <div>
-                                <p class="box">{item.genre}</p>
+                                <p className="box">{item.genre}</p>
                               </div>
                             </div>
                           </Col>
@@ -80,7 +80,7 @@ export default function RcW() {
                             <div className="card-body">
                               <h5>{item.name}</h5>
                               <div>
-                                <p class="box">{item.genre}</p>
+                                <p className="box">{item.genre}</p>
                               </div>
                             </div>
                           </Col>

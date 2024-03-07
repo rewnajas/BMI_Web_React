@@ -59,7 +59,7 @@ describe('Have Completed Input', () => {
 
  describe('it should Calculate correctly', () => {
     //======male case============================================================================================
-     it('Should calculate fat percentage correctly for H=150, W=25, Age=20, gender=male, Frequency Exercise 1-3 day/week', () => {
+     it('Should calculate BMR for H=150, W=25, Age=20, gender=male, Frequency Exercise 1-3 day/week', () => {
         render(<BMR/>);
         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '150' } });
         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '25' } });
@@ -73,7 +73,7 @@ describe('Have Completed Input', () => {
         expect(testImg).toBeInTheDocument();
       })
 
-      it('Should calculate fat percentage correctly for H=160, W=30, Age=22, gender=male, Frequency Exercise 1-3 day/week', () => {
+      it('Should calculate BMR correctly for H=160, W=30, Age=22, gender=male, Frequency Exercise 1-3 day/week', () => {
         render(<BMR/>);
         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '30' } });
@@ -87,7 +87,7 @@ describe('Have Completed Input', () => {
         expect(testImg).toBeInTheDocument();
       })
 
-      it('Should calculate fat percentage correctly for H=160, W=30, Age=22, gender=male, Frequency Exercise sportperson', () => {
+      it('Should calculate BMR correctly for H=160, W=30, Age=22, gender=male, Frequency Exercise sportperson', () => {
         render(<BMR/>);
         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '30' } });
@@ -102,7 +102,7 @@ describe('Have Completed Input', () => {
       })
 
     
-      it('Should calculate fat percentage correctly for H=180, W=70, Age=22, gender=male, Frequency Exercise 1-3 day/week', () => {
+      it('Should calculate BMR correctly for H=180, W=70, Age=22, gender=male, Frequency Exercise 1-3 day/week', () => {
         render(<BMR/>);
         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '70' } });
@@ -117,7 +117,7 @@ describe('Have Completed Input', () => {
         
       })
 
-      it('Should calculate fat percentage correctly for H=180, W=70, Age=25, gender=male, Frequency Exercise  sportperson', () => {
+      it('Should calculate BMR correctly for H=180, W=70, Age=25, gender=male, Frequency Exercise  sportperson', () => {
         render(<BMR/>);
         fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
         fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '70' } });
@@ -132,7 +132,7 @@ describe('Have Completed Input', () => {
         
       })
       //======female case============================================================================================
-      it('Should calculate fat percentage correctly for H=150, W=25, Age=20, gender=female, Frequency Exercise 1-3 day/week', () => {
+      it('Should calculate BMR correctly for H=150, W=25, Age=20, gender=female, Frequency Exercise 1-3 day/week', () => {
          render(<BMR/>);
          fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '150' } });
          fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '25' } });
@@ -146,7 +146,7 @@ describe('Have Completed Input', () => {
          expect(testImg).toBeInTheDocument();
        })
  
-       it('Should calculate fat percentage correctly for H=160, W=30, Age=22, gender=female, Frequency Exercise 1-3 day/week', () => {
+       it('Should calculate BMR correctly for H=160, W=30, Age=22, gender=female, Frequency Exercise 1-3 day/week', () => {
          render(<BMR/>);
          fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
          fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '30' } });
@@ -160,7 +160,7 @@ describe('Have Completed Input', () => {
          expect(testImg).toBeInTheDocument();
        })
  
-       it('Should calculate fat percentage correctly for H=160, W=30, Age=22, gender=female, Frequency Exercise sportperson', () => {
+       it('Should calculate BMR correctly for H=160, W=30, Age=22, gender=female, Frequency Exercise sportperson', () => {
          render(<BMR/>);
          fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '160' } });
          fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '30' } });
@@ -175,7 +175,7 @@ describe('Have Completed Input', () => {
        })
  
      
-       it('Should calculate fat percentage correctly for H=180, W=70, Age=22, gender=female, Frequency Exercise 3-5 day/week', () => {
+       it('Should calculate BMR correctly for H=180, W=70, Age=22, gender=female, Frequency Exercise 3-5 day/week', () => {
          render(<BMR/>);
          fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
          fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '70' } });
@@ -190,7 +190,7 @@ describe('Have Completed Input', () => {
          
        })
  
-       it('Should calculate fat percentage correctly for H=180, W=70, Age=25, gender=female, Frequency Exercise  sportperson', () => {
+       it('Should calculate BMR correctly for H=180, W=70, Age=25, gender=female, Frequency Exercise  sportperson', () => {
          render(<BMR/>);
          fireEvent.change(screen.getByPlaceholderText('Enter height'), { target: { value: '180' } });
          fireEvent.change(screen.getByPlaceholderText('Enter weight'), { target: { value: '70' } });

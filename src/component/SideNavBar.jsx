@@ -104,7 +104,7 @@ function SideNavBar() {
           </Offcanvas.Body>
         </Offcanvas>
 
-        <Routes>
+        <Routes>  
           <Route path="/react-bmi" element={<BMI />} />
           <Route path="/FatCal" element={<FatPercentage />} />
           <Route path="/BMR" element={<BMR />} />

@@ -65,8 +65,7 @@
     ,
     "coveragePathIgnorePatterns": [
       "/bodyfat/",
-      "/bmi/",
-      "/fpic/"
+      "/bmi/"
     ]
   }
 }
